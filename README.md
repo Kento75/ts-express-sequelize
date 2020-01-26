@@ -28,3 +28,15 @@ $ curl -X POST --data "name=first" http://localhost:3000/nodes/
 # status code 500
 $ curl -X POST http://localhost:3000/nodes/
 ```
+
+### update data
+
+```
+$ curl -X PUT --data "name=updated" http://localhost:3000/nodes/1
+```
+
+### delete data
+
+```
+$ curl -X DELETE  http://localhost:3000/nodes/1
+```

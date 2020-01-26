@@ -33,4 +33,5 @@ Node.init(
   }
 );
 
+// 起動するたびにテーブルを作成し直す設定
 Node.sync({force: true}).then((): void => console.log('Node table created'));

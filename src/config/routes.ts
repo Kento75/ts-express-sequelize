@@ -10,6 +10,10 @@ export class Routes {
       .get(this.nodesController.index)
       .post(this.nodesController.create);
 
-    app.route('/nodes/:id').get(this.nodesController.show);
+    app
+      .route('/nodes/:id')
+      .get(this.nodesController.show)
+      .put(this.nodesController.update)
+      .delete(this.nodesController.delete);
   }
 }
