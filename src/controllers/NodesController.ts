@@ -1,5 +1,5 @@
 import {Response} from 'express';
-import {CustomRequest} from '../interfaces/CustomRequest';
+import {CustomRequest} from '../interfaces/customRequest';
 
 export class NodesController {
   public index(req: CustomRequest, res: Response) {

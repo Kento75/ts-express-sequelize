@@ -1,5 +1,5 @@
 import {Application} from 'express';
-import {NodesController} from '../controllers/NodesController';
+import {NodesController} from '../controllers/nodesController';
 
 export class Routes {
   public nodesController: NodesController = new NodesController();
