@@ -1,6 +1,11 @@
 import {Sequelize, Model, DataTypes, BuildOptions} from 'sequelize';
 import {database} from '../config/database';
 
+// interface
+export interface NodeInterface {
+  name: string;
+}
+
 // entity
 export class Node extends Model {
   public id!: number;
