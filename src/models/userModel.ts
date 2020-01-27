@@ -1,13 +1,14 @@
-import {Sequelize, Model, DataTypes, BuildOptions} from 'sequelize';
+import {Model, DataTypes} from 'sequelize';
 import {database} from '../config/database';
+import {Book} from './bookModel';
 
 // interface
-export interface NodeInterface {
+export interface UserInterface {
   name: string;
 }
 
 // entity
-export class Node extends Model {
+export class User extends Model {
   public id!: number;
   public name!: string;
   public readonly createdAt!: Date;
@@ -15,7 +16,7 @@ export class Node extends Model {
 }
 
 // schema
-Node.init(
+User.init(
   {
     id: {
       type: DataTypes.INTEGER.UNSIGNED,
@@ -28,10 +29,17 @@ Node.init(
     },
   },
   {
-    tableName: 'nodes',
+    tableName: 'users',
     sequelize: database,
   }
 );
 
+// リレーション
+// 1 : n
+User.hasMany(Book, {
+  sourceKey: 'id',
+  foreignKey: 'userId',
+});
+
 // 起動するたびにテーブルを作成し直す設定
-Node.sync({force: true}).then((): void => console.log('Node table created'));
+User.sync({force: true}).then((): void => console.log('User table created'));
